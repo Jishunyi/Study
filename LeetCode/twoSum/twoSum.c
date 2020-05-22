@@ -7,27 +7,34 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int* twoSum(int* nums, int numsSize, int target, int* returnSize){
-    int i,j;
-    int * TwoNum=malloc(2*sizeof(int));
-    for(i=0;i<numsSize;i++){
-        for(j=i+1;j<numsSize;j++){
-            if((nums[i]+nums[j])==target){
-                TwoNum[0]=i;
-                TwoNum[1]=j;
-                *returnSize=2;
+/*执行用时 :184 ms, 在所有 C 提交中击败了57.94%的用户
+*内存消耗 :6.1 MB, 在所有 C 提交中击败了100.00%的用户
+*/
+int *twoSum(int *nums, int numsSize, int target, int *returnSize)
+{
+    int i, j;
+    int *TwoNum = malloc(2 * sizeof(int));
+    for (i = 0; i < numsSize - 1; i++)
+    {
+        for (j = i + 1; j < numsSize; j++)
+        {
+            if ((nums[i] + nums[j]) == target)
+            {
+                TwoNum[0] = i;
+                TwoNum[1] = j;
+                *returnSize = 2;
                 return TwoNum;
             }
         }
     }
-    free(returnSize);
-    return NULL;
+    return TwoNum;
 }
 
-int main(void){
+int main(void)
+{
     int nums[] = {2, 7, 11, 15}, target = 9;
-    int* returnSize;
-    int *TwoNum=twoSum(nums,sizeof(nums)/sizeof(int),target,returnSize);
-    printf("nums[%d]=%d\nnums[%d]=%d\n%d+%d=%d\n",TwoNum[0],nums[TwoNum[0]],TwoNum[1],nums[TwoNum[1]],nums[TwoNum[0]],nums[TwoNum[1]],nums[TwoNum[0]]+nums[TwoNum[1]]);
+    int *returnSize;
+    int *TwoNum = twoSum(nums, sizeof(nums) / sizeof(int), target, returnSize);
+    printf("nums[%d]=%d\nnums[%d]=%d\n%d+%d=%d\n", TwoNum[0], nums[TwoNum[0]], TwoNum[1], nums[TwoNum[1]], nums[TwoNum[0]], nums[TwoNum[1]], nums[TwoNum[0]] + nums[TwoNum[1]]);
     return 0;
 }
