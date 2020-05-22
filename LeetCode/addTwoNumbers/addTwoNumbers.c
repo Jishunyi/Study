@@ -20,44 +20,44 @@ struct ListNode
 
 struct ListNode *addTwoNumbers(struct ListNode *l1, struct ListNode *l2)
 {
-    int n = 0, m = 0; //和 进位
+    int n = 0, m = 0; //个位 进位 //必须初始化为0
     struct ListNode *sum, *p, *q, *r;
-    sum = (struct ListNode *)malloc(sizeof(struct ListNode));
+    sum = (struct ListNode *)malloc(sizeof(struct ListNode)); //空的头结点
     r = sum;
     p = l1, q = l2;
     while (p != NULL || q != NULL)
     {
-        r->next = (struct ListNode *)malloc(sizeof(struct ListNode));
+        r->next = (struct ListNode *)malloc(sizeof(struct ListNode)); //先有空间才能后移  //否则将踏空
         r = r->next;
-        if (p == NULL)
+        if (p == NULL) //p更短，提前结束
         {
             n = (q->val + m) % 10;
             m = (q->val + m) / 10;
             q = q->next;
         }
-        else if (q == NULL)
+        else if (q == NULL) //q更短，提前结束
         {
             n = (p->val + m) % 10;
             m = (p->val + m) / 10;
             p = p->next;
         }
-        else
+        else //两数等长
         {
-            n = (p->val + q->val + m) % 10;
-            m = (p->val + q->val + m) / 10;
+            n = (p->val + q->val + m) % 10; //当前个位需要考虑上一个进位
+            m = (p->val + q->val + m) / 10; //当前进位需要考虑上一个进位
             q = q->next;
             p = p->next;
         }
         r->val = n;
     }
-    if (m > 0)
+    if (m > 0) //遗留的最高位进位
     {
-        r->next = (struct ListNode *)malloc(sizeof(struct ListNode)); //先有空间才能后移  //否则将踏空
+        r->next = (struct ListNode *)malloc(sizeof(struct ListNode));
         r = r->next;
         r->val = m;
     }
-    r->next = NULL;
-    return sum->next;
+    r->next = NULL;   //尾部节点赋空值
+    return sum->next; //舍弃头部空节点
 }
 
 int main(void)
