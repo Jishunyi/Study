@@ -1,4 +1,12 @@
 /*
+ * @Author       : Shunyi
+ * @Date         : 2020-05-22 15:05:18
+ * @LastEditors  : Shunyi
+ * @LastEditTime : 2020-05-25 14:29:33
+ * @Blog         : https://shunyi.fun/
+ * @FilePath     : \VSCode\Study\LeetCode\lengthOfLongestSubstring\lengthOfLongestSubstring.c
+ */
+/*
  *给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
 
  *示例 1:
@@ -22,6 +30,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * @description: 
+ * @param {type} 
+ * @return: 
+ */
 int lengthOfLongestSubstring(char *s)
 {
     char *s1, *s2;                                      //理论上最长的无重复子串 由所有字符组成
