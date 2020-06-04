@@ -1,4 +1,4 @@
-<center><font face ="楷体" color = red size ="64">Markdown 学习笔记</font></center>
+<div align='center'><font face ="楷体" color = red size ="64">Markdown 学习笔记</font></div>
 
 ***
 # 段落格式
@@ -9,13 +9,16 @@
 2. **划线**
     > - <u>下划线</u>
     > - ~~删除线~~
-3. **脚注**
+3. **转义**
+    > * 正常显示星号 \*
+    > * 正常显示星号 \#
+4. **脚注**
     > * 列表有多种方式[^1]
     > * 区块有多种方式[^2]
    
     [^1]:无序列表使用星号(+)、加号(-)或减号(*)作为列表标记
     [^2]:区块可嵌套，一个(>)符号是第一层，两个(>)符号是第二层嵌套，以此类推
-4. **链接**
+5. **链接**
     > + [博客链接](https://shunyi.fun/)
     > + <https://shunyi.fun/>
 ***
@@ -45,3 +48,15 @@
 # HTML支持
 1. **键盘**
    预览快捷键：<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd>
+2. **流程图**
+```flow
+st=>start: 开始框
+op=>operation: 处理框
+cond=>condition: 判断框(是或否?)
+sub1=>subroutine: 子流程
+io=>inputoutput: 输入输出框
+e=>end: 结束框
+st->op->cond
+cond(yes)->io->e
+cond(no)->sub1(right)->op
+```
