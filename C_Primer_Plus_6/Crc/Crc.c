@@ -2,13 +2,13 @@
  * @Author       : Shunyi
  * @Date         : 2020-05-15 14:41:48
  * @LastEditors  : Shunyi
- * @LastEditTime : 2020-06-04 13:27:39
+ * @LastEditTime : 2020-06-08 08:34:46
  * @Blog         : https://shunyi.fun/
  * @FilePath     : \VSCode\Study\C_Primer_Plus_6\Crc\Crc.c
  */
 #include <stdio.h>
 
-const unsigned short usCrcTable[256] = {
+const unsigned short usCrcTable[256] = { //西继迅达
 	0x0000,
 	0xC0C1,
 	0xC181,
@@ -266,7 +266,7 @@ const unsigned short usCrcTable[256] = {
 	0x8081,
 	0x4040};
 
-unsigned short CRC16_Modbus(unsigned char *pdata, int len)
+unsigned short CRC16_Modbus(unsigned char *pdata, int len) //标准
 {
 	unsigned short crc = 0xFFFF;
 	int i, j;
@@ -287,7 +287,7 @@ unsigned short CRC16_Modbus(unsigned char *pdata, int len)
 	return crc;
 }
 
-unsigned short CheckCrc16(const unsigned char *puc, int len)
+unsigned short CheckCrc16(const unsigned char *puc, int len) //西继迅达
 {
 	unsigned int i;
 	unsigned short Crc16;
